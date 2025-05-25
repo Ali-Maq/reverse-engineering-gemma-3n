@@ -8,7 +8,9 @@ The post also mentions "per layer embeddings" which seems to allow them to leave
 
 How does this new model work?
 
-There seems to be a lot of little tricks that I haven't really seen elsewhere.
+There seems to be a lot of little tricks that I haven't really seen elsewhere— and I think personally I've learned a decent amount from trying to figure it out, but an ulterior aim of this is in the vein of "the best way to learn something is to post something wrong on the internet"— hopefully someone with a better idea of what's going on can do a better job. 
+
+Ultimately it'd be nice if we could have some readable open-source implementation which can be ported to environments like `llama.cpp` or Huggingface Transformers or MLX. I've asked Claude to make sense of some of the opcodes and to draft a pytorch implementation (included in repo)— but it's a far cry from something that is actually runnable. 
 
 ## First Steps
 
@@ -236,4 +238,5 @@ It appears to include attention and the universal inverted bottleneck so it's pr
 
 ## Next
 
-It'd be neat to have a fully working version of this in PyTorch or elsewhere. 
+Like I mentioned at the start, ultimately it'd be nice if we could have some readable open-source implementation which can be ported to environments like `llama.cpp` or Huggingface Transformers or MLX. Also I didn't really pay very much attention to the vision stuff, and I didn't really put that much effort into understanding AltUp. 
+
