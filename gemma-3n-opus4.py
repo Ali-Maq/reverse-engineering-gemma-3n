@@ -307,10 +307,11 @@ class GeminiModel(nn.Module):
         per_layer_emb = per_layer_emb * 0.167  # Scaling factor	
 
 
-        # Main transformer	        # Add per-layer embeddings
-        h = embeddings	        gate = F.gelu(self.per_layer_gate(final))
-        for layer in self.layers:	        per_layer_out = self.per_layer_proj(gate * per_layer_emb[:, :, self.layer_idx])
-            h = layer(h, position_ids, per_layer_emb)	        per_layer_out = self.per_layer_norm(per_layer_out)
+        # Add per-layer embeddings
+        h = embeddings	        
+        
+        for layer in self.layers:	        
+            h = layer(h, position_ids, per_layer_emb)
 
         # Final output	
         h = self.final_norm(h)	
